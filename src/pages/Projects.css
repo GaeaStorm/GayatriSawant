@@ -293,8 +293,14 @@
   margin-bottom: 1rem;
 }
 
-.project-link {
+.project-links {
   margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.project-link {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -306,6 +312,101 @@
 
 .project-link:hover {
   color: var(--accent-warm);
+}
+
+.project-link-button {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.secondary-link {
+  opacity: 0.85;
+}
+
+/* Presentation modal */
+
+.presentation-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 9999;
+}
+
+.presentation-modal-content {
+  width: min(1100px, 94vw);
+  height: min(88vh, 920px);
+  background: var(--surface);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.18);
+  display: flex;
+  flex-direction: column;
+}
+
+.presentation-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.presentation-modal-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.presentation-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.presentation-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.presentation-close {
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.presentation-modal-body {
+  flex: 1;
+  background: var(--background);
+}
+
+.presentation-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 @media (max-width: 1100px) {
@@ -370,5 +471,19 @@
 
   .project-tags span {
     font-size: 0.86rem;
+  }
+
+  .presentation-modal {
+    padding: 1rem;
+  }
+
+  .presentation-modal-content {
+    width: 100%;
+    height: 88vh;
+  }
+
+  .presentation-modal-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

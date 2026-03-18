@@ -8,12 +8,14 @@ import {
   GraduationCap,
   Code2,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "./Home.css";
-import '../index.css';
+import "../index.css";
 
 function Home() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isProjectsOpen, setIsProjectsOpen] = useState(false);
+  const projectsDropdownRef = useRef(null);
 
   const resumeUrl = useMemo(
     () => `${import.meta.env.BASE_URL}resume_260317.pdf`,
@@ -34,11 +36,26 @@ function Home() {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
         setIsResumeOpen(false);
+        setIsProjectsOpen(false);
       }
     };
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        projectsDropdownRef.current &&
+        !projectsDropdownRef.current.contains(e.target)
+      ) {
+        setIsProjectsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -58,8 +75,7 @@ function Home() {
           </h1>
 
           <p className="hero-headline">
-            Bridging <span>product</span>, <span>strategy</span>, and{" "}
-            <span>engineering</span>
+            <span>Bridging</span> product, strategy, <span>and</span> engineering
           </p>
 
           <p className="hero-description">
@@ -72,10 +88,38 @@ function Home() {
           </p>
 
           <div className="hero-actions">
-            <Link className="primary-btn" to="/projects">
-              View Projects
-              <ArrowRight size={18} />
-            </Link>
+            <div className="projects-cta-dropdown" ref={projectsDropdownRef}>
+              <button
+                type="button"
+                className="primary-btn"
+                onClick={() => setIsProjectsOpen((open) => !open)}
+                aria-haspopup="menu"
+                aria-expanded={isProjectsOpen}
+              >
+                View Projects
+                <ArrowRight size={18} />
+              </button>
+
+              {isProjectsOpen && (
+                <div className="projects-cta-menu" role="menu">
+                  <Link
+                    to="/projects"
+                    className="projects-cta-link"
+                    onClick={() => setIsProjectsOpen(false)}
+                  >
+                    Product Projects
+                  </Link>
+
+                  <Link
+                    to="/engineering-portfolio"
+                    className="projects-cta-link"
+                    onClick={() => setIsProjectsOpen(false)}
+                  >
+                    Engineering Portfolio
+                  </Link>
+                </div>
+              )}
+            </div>
 
             <button
               type="button"

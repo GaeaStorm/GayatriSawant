@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import "./Layout.css";
-import '../index.css';
 
 function Layout({ children }) {
   return (
@@ -11,8 +10,20 @@ function Layout({ children }) {
         </NavLink>
 
         <nav className="site-nav">
-          <NavLink to="/" end>Home</NavLink>
-          <NavLink to="/projects">Projects</NavLink>
+          <NavLink to="/" end>
+            Home
+          </NavLink>
+
+          <div className="nav-dropdown">
+            <button type="button" className="nav-dropdown-label">
+              Projects
+            </button>
+            <div className="dropdown-menu">
+              <NavLink to="/projects">Product Projects</NavLink>
+              <NavLink to="/engineering-portfolio">Engineering Projects</NavLink>
+            </div>
+          </div>
+
           <NavLink to="/contact">Contact</NavLink>
         </nav>
       </header>

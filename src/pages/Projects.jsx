@@ -5,12 +5,12 @@ import {
   Cpu,
   Stethoscope,
   Building2,
-  Gamepad2,
   BrainCircuit,
   Code2,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import "./Projects.css";
-import '../index.css';
+import "../index.css";
 
 const featuredProjects = [
   {
@@ -45,7 +45,8 @@ const featuredProjects = [
       "Mapped bottlenecks, fragmented ownership, and communication breakdowns affecting both employees and clients",
       "Proposed a more centralized onboarding structure and client-facing materials to reduce delay and drop-off",
     ],
-    impact: "Impact: 50% faster account opening and a smoother UHNI client experience",
+    impact:
+      "Impact: 50% faster account opening and a smoother UHNI client experience",
     tags: [
       "Strategy",
       "Operations",
@@ -83,7 +84,8 @@ const featuredProjects = [
       "Built alignment across teams by reframing the work around shared incentives and reduced long-term overhead",
       "Led implementation with partner-team guidance and helped establish a new standard model for future onboarding",
     ],
-    impact: "Impact: ~1 month faster onboarding and lower cross-team delivery friction",
+    impact:
+      "Impact: ~1 month faster onboarding and lower cross-team delivery friction",
     tags: [
       "Systems Thinking",
       "Infrastructure",
@@ -95,35 +97,108 @@ const featuredProjects = [
 
 const explorations = [
   {
-    title: "Indie Computer Game",
-    icon: <Gamepad2 size={18} />,
+    title: "L’Oréal Brandstorm 2026 · Scent in Motion",
+    icon: <Sparkles size={18} />,
     description:
-      "A standalone game project that showcases my interest in systems, interaction design, and building things end to end outside of work.",
-    tags: ["Game Design", "Creative Build", "Systems"],
-    linkLabel: "Add link later",
-    href: "#",
+      "Developed a luxury fragrance concept for YSL Beauty centered on modular scent customization. The concept combined a couture base, interchangeable layering capsules, and an AI mood translator, with a phased rollout, sustainability rationale, and clear commercial KPIs.",
+    tags: [
+      "Consumer Product Strategy",
+      "Go-to-Market",
+      "Luxury",
+      "AI Personalization",
+    ],
+    primaryLinkType: "external",
+    // primaryLinkLabel: "View presentation",
+    // presentationUrl: `${import.meta.env.BASE_URL}Loreal.pdf`, 
+    primaryLinkLabel: "View concept website",
+    href: "https://gaeastorm.github.io/ScentInMotion/",
   },
   {
-    title: "NLP Question Generation",
+    title: "ToyCycle · Sustainable 3D-Printed Toy System",
+    icon: <Sparkles size={18} />,
+    description:
+      "Designed and prototyped a circular toy system using biodegradable, 3D-printed materials for children aged 1–3. The concept addresses the short lifecycle and environmental impact of toys by combining sustainable materials, modular product design, and a reuse/compost model.",
+    tags: [
+      "Product Design",
+      "Sustainability",
+      "Hardware + Software Thinking",
+      "Go-to-Market",
+    ],
+    primaryLinkType: "modal",
+    primaryLinkLabel: "View presentation",
+    presentationUrl: `${import.meta.env.BASE_URL}ToyCycle.pdf`,
+  },
+  {
+    title: "Slack Notification Prioritization PRD",
     icon: <BrainCircuit size={18} />,
     description:
-      "Built seq2seq and textual analysis workflows for question and keyword generation in an education-focused NLP setting.",
-    tags: ["NLP", "Machine Learning", "Python"],
-    linkLabel: "Add link later",
-    href: "#",
+      "Built a product requirements document for a Slack feature designed to help in-office and hybrid users prioritize urgent messages. The work included user research, TAM and opportunity sizing, MVP requirements, experiment design, rollout planning, and monetization logic for enterprise users.",
+    tags: [
+      "Product Management",
+      "PRD",
+      "TAM Sizing",
+      "Experiment Design",
+    ],
+    primaryLinkType: "modal",
+    primaryLinkLabel: "View document",
+    presentationUrl: `${import.meta.env.BASE_URL}Slack.pdf`,
   },
   {
-    title: "Rice Apps Projects",
+    title: "Dexcom Service Management for Social Impact",
+    icon: <Stethoscope size={18} />,
+    description:
+      "Analyzed Dexcom as a service platform through the lens of service strategy, customer journey design, social impact, and operational scaling. The project focused on how access, reliability, and service design could expand both health outcomes and long-term value capture.",
+    tags: [
+      "Service Strategy",
+      "Healthcare",
+      "Social Impact",
+      "Customer Journey",
+    ],
+    primaryLinkType: "modal",
+    primaryLinkLabel: "View presentation",
+    presentationUrl: `${import.meta.env.BASE_URL}Dexcom.pdf`,
+  },
+  {
+    title: "Food Detection + Recipe Generation",
     icon: <Code2 size={18} />,
     description:
-      "Worked on student-facing products including an elections website and BeakSpeak, an anonymous campus discussion app.",
-    tags: ["Full Stack", "Product Build", "Student Tech"],
-    linkLabel: "Add link later",
-    href: "#",
+      "Built an AI-powered concept that identifies food items in a fridge and recommends recipes using the OpenAI API. I’d position this as an early product prototype focused on user utility, AI workflow design, and practical consumer experience.",
+    tags: [
+      "AI Product Prototype",
+      "Consumer Utility",
+      "OpenAI API",
+      "Applied ML",
+    ],
+    primaryLinkType: "external",
+    primaryLinkLabel: "View GitHub repo",
+    href: "https://github.com/GaeaStorm/FoodDetection_RecipeGen",
   },
 ];
 
 function Projects() {
+  const [activePresentation, setActivePresentation] = useState(null);
+
+  useEffect(() => {
+    if (activePresentation) {
+      document.body.classList.add("modal-open");
+    } else {
+      document.body.classList.remove("modal-open");
+    }
+
+    return () => document.body.classList.remove("modal-open");
+  }, [activePresentation]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setActivePresentation(null);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <div className="projects-page">
       <section className="projects-hero">
@@ -185,18 +260,19 @@ function Projects() {
 
       <section className="projects-section explorations-section">
         <div className="section-header">
-          <p className="section-kicker">Explorations</p>
-          <h2>Other builds and experiments</h2>
+          <p className="section-kicker">Complete List</p>
           <p>
-            A broader set of technical and creative work, including side
-            projects, ML experiments, and things I have built outside of formal
-            roles.
+            Additional product work across consumer strategy, product
+            management, service design, and AI prototyping.
           </p>
         </div>
 
         <div className="explorations-grid">
           {explorations.map((project) => (
-            <article className="project-card exploration-card" key={project.title}>
+            <article
+              className="project-card exploration-card"
+              key={project.title}
+            >
               <div className="project-card-top">
                 <div className="project-icon">{project.icon}</div>
               </div>
@@ -210,14 +286,88 @@ function Projects() {
                 ))}
               </div>
 
-              <a className="project-link" href={project.href}>
-                {project.linkLabel}
-                <ArrowUpRight size={16} />
-              </a>
+              <div className="project-links">
+                {project.primaryLinkType === "modal" ? (
+                  <button
+                    type="button"
+                    className="project-link project-link-button"
+                    onClick={() => setActivePresentation(project)}
+                  >
+                    {project.primaryLinkLabel}
+                    <ArrowUpRight size={16} />
+                  </button>
+                ) : (
+                  <a
+                    className="project-link"
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {project.primaryLinkLabel}
+                    <ArrowUpRight size={16} />
+                  </a>
+                )}
+
+                {project.secondaryHref && (
+                  <a
+                    className="project-link secondary-link"
+                    href={project.secondaryHref}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {project.secondaryLinkLabel}
+                    <ArrowUpRight size={16} />
+                  </a>
+                )}
+              </div>
             </article>
           ))}
         </div>
       </section>
+
+      {activePresentation && (
+        <div
+          className="presentation-modal"
+          onClick={() => setActivePresentation(null)}
+        >
+          <div
+            className="presentation-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="presentation-modal-header">
+              <h2>{activePresentation.title}</h2>
+
+              <div className="presentation-modal-actions">
+                <a
+                  href={activePresentation.presentationUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="presentation-link"
+                >
+                  Open in new tab
+                </a>
+
+                <button
+                  type="button"
+                  className="presentation-close"
+                  onClick={() => setActivePresentation(null)}
+                  aria-label="Close presentation modal"
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+
+            <div className="presentation-modal-body">
+              <iframe
+                src={activePresentation.presentationUrl}
+                title={activePresentation.title}
+                className="presentation-frame"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
