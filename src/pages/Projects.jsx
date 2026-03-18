@@ -14,22 +14,24 @@ import '../index.css';
 
 const featuredProjects = [
   {
-    title: "Scaling Virtual Machine Onboarding on Cloud",
+    title: "Launching and Scaling a New VM Platform (E4 Dense)",
     eyebrow: "Oracle Cloud Infrastructure",
-    icon: <Cpu size={18} />,
+    icon: <BriefcaseBusiness size={18} />,
     summary:
-      "Reduced onboarding time by about one month by redesigning a cross-team provisioning workflow and replacing manual dependencies with a more scalable API-driven approach.",
+      "Led development and onboarding of a new VM platform (Intel E4 Dense), combining platform launch, operational system design, and cross-team coordination to deliver a revenue-generating product.",
     bullets: [
-      "Identified a recurring bottleneck in VM onboarding caused by hardcoded network configuration handoffs",
-      "Built alignment across teams by reframing the work around shared incentives and reduced long-term overhead",
-      "Led implementation with partner-team guidance and helped establish a new standard model for future onboarding",
+      "Led a team of 3 engineers to develop and launch a new VM offering for a key customer",
+      "Designed guardrails, automation, and onboarding processes that became the standard for future platform rollouts",
+      "Built internal tooling to reduce errors in custom VM creation and improve reliability across deployments",
+      "Partnered with infrastructure teams and negotiated ownership of cross-team dependencies to ensure timely delivery",
     ],
-    impact: "Impact: ~1 month faster onboarding and lower cross-team delivery friction",
+    impact:
+      "Impact: ~$8M in new revenue, significantly improved onboarding reliability, and long-term process adoption across the team",
     tags: [
-      "Systems Thinking",
-      "Infrastructure",
-      "Cross-functional Leadership",
-      "Product Acceleration",
+      "Product Launch",
+      "Distributed Systems",
+      "Leadership",
+      "Operational Design",
     ],
   },
   {
@@ -71,18 +73,23 @@ const featuredProjects = [
     ],
   },
   {
-    title: "Optimizing Cloud Infrastructure Utilization",
+    title: "Scaling Virtual Machine Onboarding on Cloud",
     eyebrow: "Oracle Cloud Infrastructure",
-    icon: <BriefcaseBusiness size={18} />,
+    icon: <Cpu size={18} />,
     summary:
-      "Worked on infrastructure efficiency improvements that unlocked substantial unused capacity and reduced capital requirements.",
+      "Reduced onboarding time by about one month by redesigning a cross-team provisioning workflow and replacing manual dependencies with a more scalable API-driven approach.",
     bullets: [
-      "Collaborated on a project to decouple CPU and memory reservations across cloud infrastructure",
-      "Improved flexibility in how capacity could be allocated and utilized",
-      "Supported a more efficient operating model for internal infrastructure resources",
+      "Identified a recurring bottleneck in VM onboarding caused by hardcoded network configuration handoffs",
+      "Built alignment across teams by reframing the work around shared incentives and reduced long-term overhead",
+      "Led implementation with partner-team guidance and helped establish a new standard model for future onboarding",
     ],
-    impact: "Impact: 52k CPUs freed and an estimated $26M in capital savings",
-    tags: ["Cloud Systems", "Resource Optimization", "Operational Efficiency", "Scale"],
+    impact: "Impact: ~1 month faster onboarding and lower cross-team delivery friction",
+    tags: [
+      "Systems Thinking",
+      "Infrastructure",
+      "Cross-functional Leadership",
+      "Product Acceleration",
+    ],
   },
 ];
 
