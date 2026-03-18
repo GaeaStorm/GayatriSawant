@@ -34,3 +34,28 @@ img {
 #root {
   min-height: 100vh;
 }
+
+:root {
+  /* PRIMARY BRAND (NAVY) */
+  --primary: #0b1f3a;        /* main navy */
+  --primary-soft: #132a4a;   /* lighter navy */
+  --accent: #1e3a5f;         /* secondary navy */
+
+  /* BACKGROUNDS */
+  --background: #f8fafc;     /* page background */
+  --surface: #ffffff;        /* cards */
+
+  /* TEXT */
+  --text-main: #0b1f3a;      /* headings (navy) */
+  --text-secondary: #3f4c5a; /* body text */
+
+  /* UI ELEMENTS */
+  --border: #e2e8f0;
+  --hover: #132a4a;
+
+  /* HIGHLIGHT (NOW NAVY — IMPORTANT) */
+  --highlight: #0b1f3a;
+
+  /* SUBTLE ACCENT (GOLD — USE SPARINGLY) */
+  --accent-warm: #c9a227;
+}

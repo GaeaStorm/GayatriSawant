@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import "./Home.css";
+import '../index.css';
 
 function Home() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -48,9 +49,10 @@ function Home() {
             MBA Student • Engineer • Consumer Researcher • Product Strategist
           </p>
 
-          <h1>
-            <span className="highlight">Ga</span>yatr
-            <span className="highlight">i</span>
+          <h1 className="hero-name">
+            <span className="name-soft">Ga</span>
+            <span className="name-strong">yatr</span>
+            <span className="name-soft">i</span>
             <br />
             Sawant
           </h1>
@@ -155,7 +157,7 @@ function Home() {
                 <Code2 size={18} />
               </div>
               <div>
-                <p className="summary-item-label">Experience</p>
+                <p className="summary-item-label">Recent Experience</p>
                 <p className="summary-item-value">
                   Strategy Intern, Julius Baër (Summer 2025)
                 </p>

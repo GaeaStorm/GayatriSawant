@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
 import "./Layout.css";
+import '../index.css';
 
 function Layout({ children }) {
   return (
     <div className="site-shell">
       <header className="site-header">
         <NavLink to="/" className="brand">
-          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Gayatri Sawant" />
+          <img src={`${import.meta.env.BASE_URL}logo2.png`} alt="Gayatri Sawant" />
         </NavLink>
 
         <nav className="site-nav">
