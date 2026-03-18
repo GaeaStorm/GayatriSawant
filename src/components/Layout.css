@@ -49,6 +49,13 @@
   text-align: center;
 }
 
+.brand img {
+  height: 50px;
+  width: auto;
+  padding: 0rem;
+  /* display: block; */
+}
+
 @media (max-width: 760px) {
   .site-header {
     flex-direction: column;
