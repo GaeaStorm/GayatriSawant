@@ -12,7 +12,6 @@ function Layout({ children }) {
         <nav className="site-nav">
           <NavLink to="/" end>Home</NavLink>
           <NavLink to="/projects">Projects</NavLink>
-          <NavLink to="/resume">Resume</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
       </header>
