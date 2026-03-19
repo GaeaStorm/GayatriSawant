@@ -35,7 +35,7 @@
 
 .projects-hero-copy h1 span {
   color: var(--accent-warm);
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .projects-description {
@@ -323,7 +323,7 @@
 }
 
 .secondary-link {
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 /* Presentation modal */
