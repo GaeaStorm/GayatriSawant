@@ -206,7 +206,7 @@ function Projects() {
           <p className="projects-kicker">Selected Work</p>
 
           <h1>
-            <span>Strategy</span> Projects
+            <span>Product</span> Projects
           </h1>
 
           <p className="projects-description">

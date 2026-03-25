@@ -18,7 +18,7 @@ function Home() {
   const projectsDropdownRef = useRef(null);
 
   const resumeUrl = useMemo(
-    () => `${import.meta.env.BASE_URL}resume_260317.pdf`,
+    () => `${import.meta.env.BASE_URL}resume_260325.pdf`,
     []
   );
 
